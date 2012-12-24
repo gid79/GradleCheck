@@ -1,0 +1,17 @@
+apply plugin:'java'
+
+
+task beforeTest() <<  {
+    println "**** - BEFORE THE TEST TASK"
+}
+
+task test(overwrite:true, dependsOn:['beforeTest']) 
+
+test.doLast {
+    println "**** - TEST DOLAST"
+}
+
+
+task wrapper(type:Wrapper) {
+    gradleVersion = "1.1"
+}
